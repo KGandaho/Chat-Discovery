@@ -7,9 +7,8 @@
 <body>
 
 <ul th:each="chat : ${chatHistory}">
-    <li> <span th:text="*{chat.from}"></span>
-        <span th:text="*{chat.text}"></span>
-        <span th:text="*{chat.time}"></span>
+    <li>
+        <span th:text="|*{chat.from}: *{chat.text} (*{chat.time})| "></span>
     </li>
 </ul>
 

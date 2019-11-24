@@ -5,6 +5,7 @@ import com.labelinsight.chat.model.OutputMessage
 import com.labelinsight.chat.model.PersistedMessage
 import com.labelinsight.chat.repository.OutPutMessageRepository
 import com.labelinsight.chat.service.MessageService
+import org.springframework.amqp.rabbit.core.RabbitTemplate
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.messaging.handler.annotation.DestinationVariable
 import java.text.SimpleDateFormat
@@ -29,6 +30,9 @@ class MessageController {
 
     @Autowired
     private val outputMessageRepository: OutPutMessageRepository? = null
+
+    @Autowired
+    private val rabbitTemplate: RabbitTemplate? = null
 
     @MessageMapping("/chat/{product}")
     @Throws(Exception::class)
